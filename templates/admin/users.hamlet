@@ -1,0 +1,14 @@
+$forall Entity uId user <- users
+    <div .well>
+        <p>
+            #{userIdent user}
+            $if userAdmin user
+                <span><i> Admin</i></span>
+            $else
+                <span><i> User</i></span>
+        $if userAdmin user
+            <p>
+                <a href=@{MakeUserNormalR uId}>Take user's admin rights
+        $else
+            <p>
+                <a href=@{MakeUserAdminR uId}>Give the user admin rights

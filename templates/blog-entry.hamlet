@@ -1,0 +1,5 @@
+<div>
+    <h1>#{entryTitle entry}
+    <hr>
+<div>
+    #{markdownToHtml $ entryPost entry}

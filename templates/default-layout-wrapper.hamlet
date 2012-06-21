@@ -1,0 +1,57 @@
+\<!doctype html>
+\<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+\<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+\<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+\<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="UTF-8">
+
+        <title>#{pageTitle pc}
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+
+        ^{pageHead pc}
+
+        <script src="@{StaticR js_less_js}" type="text/javascript"></script>
+        <link rel="stylesheet/less" type="text/css" href="@{StaticR css_variables_less}">
+        <link rel="stylesheet/less" type="text/css" href="@{StaticR css_cerulean_less}">
+
+        \<!--[if lt IE 9]>
+        \<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        \<![endif]-->
+
+        <script>
+          document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');
+    <body data-spy="scroll" data-target=".subnav" data-offset="80">
+        <div class="container">
+            <header>
+              ^{pageBody hc}
+            <div style="margin-top: 50px;" id="main" role="main">
+              ^{pageBody pc}
+            <hr>
+            <footer>
+              <div class="row">
+                <div class="span11">
+                  <p>
+                    <a target=new href="http://yesodweb.com/">yesod</a> powered
+                  <p>
+                    <a target=new href="http://twitter.github.com/bootstrap">Bootstrapped
+                  <p>
+                    Icons from <a target=new href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>
+                <div class="span1">
+                  <p .pull-right>
+                    <a href=#>Top <i class="icon-arrow-up"></i>
+        \<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.  chromium.org/developers/how-tos/chrome-frame-getting-started -->
+        \<!--[if lt IE 7 ]>
+            <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js">
+            <script>
+                window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})
+        \<![endif]-->
+        <script>
+            \$(document).ready(function ($) {
+              \$('.navbar').scrollspy();
+              \$('.collapse').collapse();
+            });

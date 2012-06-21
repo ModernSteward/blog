@@ -1,0 +1,4 @@
+<form .well method=post action=@{AddPluginR} enctype=#{formEnctype}>
+  ^{formWidget}
+  <input class="btn btn-success" type=submit>
+  <input class="btn" type="reset">

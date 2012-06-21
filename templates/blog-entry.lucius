@@ -1,0 +1,26 @@
+pre, code, kbd, samp { 
+  font-family: 'Droid Sans Mono', 'Lucida Console', Monaco, monospace, sans-serif;
+}
+pre {
+  color:            #ccc;
+  background-color: #303030;
+}
+code, kbd, samp {
+  padding:          0px;
+  border:           none;
+  color:            inherit;
+  background-color: inherit;
+}
+pre.sourceCode span.kw { color: #f0dfaf; }
+pre.sourceCode span.dt { color: #dfdfbf; }
+pre.sourceCode span.dv { color: #dcdccc; }
+pre.sourceCode span.bn { color: #dca3a3; }
+pre.sourceCode span.fl { color: #c0bed1; }
+pre.sourceCode span.ch { color: #dca3a3; }
+pre.sourceCode span.st { color: #cc9393; }
+pre.sourceCode span.co { color: #7f9f7f; }
+pre.sourceCode span.ot { color: #efef8f; }
+pre.sourceCode span.al { color: #ffcfaf; }
+pre.sourceCode span.fu { color: #efef8f; }
+pre.sourceCode span.re { color: #ffd7a7; }
+pre.sourceCode span.er { color: #c3bf9f; }

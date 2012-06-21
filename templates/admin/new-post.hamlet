@@ -1,0 +1,4 @@
+<form class="well" method=post action=@{NewEntryR} enctype=#{formEnctype}>
+  ^{formWidget}
+  <input class="btn btn-success" type=submit>
+  <input class="btn" type="reset">

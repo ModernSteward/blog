@@ -1,0 +1,18 @@
+$maybe msg <- mmsg
+    <div #message>#{msg}
+<div .row>
+  <div .span3>
+   <div .well style="padding: 8px 0;">
+    <ul .nav .nav-list>
+      <li .nav-header>_{MsgContent}
+      $forall (route, m) <- adminContentMenu
+        <li :aIsCurrent route:.active>
+          <a href=@{route}>_{m}
+      <li .nav-header>_{MsgUsers}
+      <li>
+        <a href=@{AdminListUsersR}>_{MsgListUsers}
+      <li .devider>
+      <li>
+        <a href="#">_{MsgHelp}
+  <div .span9>
+      ^{widget}

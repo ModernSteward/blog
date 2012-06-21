@@ -1,0 +1,33 @@
+User
+    ident Text
+    password Text Maybe
+    admin Bool
+    UniqueUser ident
+    deriving (Show)
+
+Email
+    email Text
+    user UserId Maybe
+    verkey Text Maybe
+    UniqueEmail email
+
+Tag
+    post EntryId
+    name Text
+    UniqueTag post name
+
+Entry
+    slug Text
+    title Text
+    posted UTCTime
+    descr Markdown Maybe
+    post Markdown
+    UniquePost slug
+
+Plugin
+    title Text
+    description Textarea
+    contentType Text ""
+    filePath Text
+
+ -- By default this file is used in Model.hs (which is imported by Foundation.hs)

@@ -1,0 +1,27 @@
+<nav>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div .pull-right>
+          <form .navbar-form .pull-right method=post action=@{LangR}>
+            $maybe cr <- current
+              <input type=hidden name=dest value=@{tm cr}>
+            <select name=lang>
+              <option>-- Language
+              $forall lang <- langs
+                <option value=#{fst lang}>#{snd lang}
+            <input type=submit value="Change Language">
+        <div class="container">
+          <a class="brand" href=@{HomeR}>_{MsgProjectName}
+          <ul class="nav">
+            $forall (route, m) <- menus
+              <li :isCurrent route:.active>
+                <a href=@{route}>_{m}
+            $if isCurrentUserAdmin
+              <li :isCurrent AdminR:.active>
+                <a href=@{AdminR}>_{MsgAdminPanel}
+            <li :isCurrent $ AuthR LoginR:.active>
+              $maybe _ <- muser
+                <a href=@{AuthR LogoutR}>_{MsgLogout}
+              $nothing
+                <a href=@{AuthR LoginR}>_{MsgLogin}
+

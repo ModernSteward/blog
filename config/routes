@@ -1,0 +1,28 @@
+/static StaticR Static getStatic
+/auth   AuthR   Auth   getAuth
+
+/favicon.ico FaviconR GET
+/robots.txt RobotsR GET
+
+/ HomeR GET POST
+/admin AdminR GET
+
+/admin/list-users AdminListUsersR GET
+/admin/make-admin/#UserId MakeUserAdminR GET
+/admin/make-nrml-usr/#UserId MakeUserNormalR GET
+
+/admin/new-entry NewEntryR GET POST
+/admin/edit-entry/#Text EditEntryR GET
+/admin/delete-entry/#Text DeleteEntryR GET
+
+/admin/new-plugin AddPluginR GET POST
+
+/blog BlogR GET
+/blog/page/#Int BlogPageR GET
+/blog/#Text EntryR GET
+
+/lang LangR POST
+
+/plugin/download/#PluginId DownloadPluginR GET
+/plugin/info/#PluginId InfoPluginR GET
+/plugin/getlist ListPluginsR GET

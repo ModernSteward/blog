@@ -1,0 +1,24 @@
+$if null entries
+    <p>Няма постове
+$else
+    <div>
+        $forall Entity _ entry <- entries
+            <div class="row">
+                <div class="span12">
+                    <div>
+                      <div .row>
+                        <div .span8>
+                          <h1>
+                            <a href=@{EntryR $ entrySlug entry}>#{entryTitle entry}
+                        $if isCurrentUserAdmin
+                         <div .span4>
+                          <div .btn-group .pull-right>
+                           <a .btn href=@{DeleteEntryR $ entrySlug entry}>
+                             delete
+                           <a .btn href=@{EditEntryR $ entrySlug entry}>
+                             edit
+                      <p>
+                        #{humanReadableTime' now $ entryPosted entry}
+                    $maybe descr <- entryDescr entry
+                        <div>
+                            #{markdownToHtml descr}

@@ -1,0 +1,21 @@
+<h1>
+    _{MsgDashboard}
+<div .hero-unit>
+    <h1>
+        _{MsgAdminWelcome}
+    <p>
+        _{MsgAdminHome}
+<div .well .summary>
+    <ul>
+        <li>
+          <span .count>
+            #{show posts}
+          _{MsgPostsCount}
+        <li>
+          <span .count>
+            #{show plugins}
+          _{MsgPluginsCount}
+        <li .last>
+          <span .count>
+            #{show users}
+          _{MsgUsersCount}
