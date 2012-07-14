@@ -1,6 +1,8 @@
 User
     ident Text
     password Text Maybe
+    verkey Text Maybe
+    verified Bool
     admin Bool
     UniqueUser ident
     deriving (Show)

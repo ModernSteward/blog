@@ -86,6 +86,8 @@ library
                  , old-locale
                  , time
                  , blaze-markup
+                 , blaze-html
+                 , mime-mail
                  , SHA
 
 executable         blog
