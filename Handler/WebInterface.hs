@@ -2,7 +2,6 @@
 module Handler.WebInterface where
 
 import Import
-import Data.Int (Int64)
 import qualified Data.Text as T (pack)
 
 getSendR :: Text -> Handler RepHtml

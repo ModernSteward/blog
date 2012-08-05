@@ -1,3 +1,4 @@
+$newline always
 $if null entries
     <p>No posts
 $else

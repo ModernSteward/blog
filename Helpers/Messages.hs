@@ -1,3 +1,4 @@
+{-# LANGUAGE RankNTypes #-}
 module Helpers.Messages where
 
 import Import
@@ -12,6 +13,10 @@ data MessageType = Success
 successMessage :: Text -> Html
 successMessage message = preEscapedText $ T.pack ("<div class=\"alert alert-success\"><a class=\"close\" data-dismiss=\"alert\"><i class=\"icon-remove\"></i></a><p><strong>Success</strong></p><p>" ++ (T.unpack message) ++ "</p></div>")
 
+
+setLabel :: forall master msg.
+            RenderMessage master msg =>
+            msg -> FieldSettings master
 setLabel x = FieldSettings { fsLabel = SomeMessage x
                            , fsTooltip = Nothing
                            , fsId = Nothing

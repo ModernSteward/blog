@@ -277,6 +277,7 @@ Thank you
             , partEncoding = None
             , partFilename = Nothing
             , partContent = renderHtml [shamlet|
+$newline always
 <p>Please confirm your email address by clicking on the link below.
 <p>
     <a href=#{verurl}>#{verurl}
@@ -290,7 +291,7 @@ Thank you
         mu <- get uid
         case mu of
             Nothing -> return Nothing
-            Just u -> do
+            Just _ -> do
                 update uid [UserVerified =. True]
                 return $ Just uid
     getPassword = runDB . fmap (join . fmap userPassword) . get

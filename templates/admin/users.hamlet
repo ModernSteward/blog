@@ -1,3 +1,4 @@
+$newline always
 $forall Entity uId user <- users
     <div .well>
         <p>

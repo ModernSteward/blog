@@ -1,3 +1,4 @@
+$newline always
 <h1>
     _{MsgDashboard}
 <div .hero-unit>

@@ -1,3 +1,4 @@
+{-# LANGUAGE RankNTypes #-}
 module Helpers.Plugin where
 
 import Prelude hiding (writeFile)
@@ -17,6 +18,8 @@ saveFile file = do
     writeFile name $ fileContent file
     return name
 
+pluginToJson :: forall (backend :: (* -> *) -> * -> *).
+                Entity (PluginGeneric backend) -> Value
 pluginToJson (Entity pid plugin) =
     let id' = case (fromPersistValue $ unKey pid) :: Either Text Int64 of
                    Left a -> error $ show a
