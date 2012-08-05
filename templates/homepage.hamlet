@@ -37,3 +37,4 @@ $newline always
     <div .span6>
       <img .bs-icon src="@{StaticR img_glyphicons_202_shopping_cart_png}">
       <h2>Rich plugin market
+      <p>In the search of the needed functionality? Just check if it’s already on the market - with the help of the market you can find just the plugin you want. And if it’s not there and you decide to develop it – you can upload it for free and contribute to ModernSteward and the open-source community.
