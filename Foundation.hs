@@ -9,6 +9,7 @@ module Foundation
     , Form
     , maybeAuth
     , requireAuth
+    , requireAuthId
     , module Settings
     , module Model
     ) where
@@ -55,7 +56,7 @@ data App = App
     }
 
 -- Set up i18n messages. See the message folder.
-mkMessage "App" "messages" "bg"
+mkMessage "App" "messages" "en"
 
 -- This is where we define all of the routes in our application. For a full
 -- explanation of the syntax, please see:

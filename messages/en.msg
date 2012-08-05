@@ -6,7 +6,7 @@ Blog: Blog
 ProjectName: ModernSteward
 Success: Success
 AddPluginTitle: Adding plugin
-HomepageDescr: Добрем, тук трябва да поставим някво кратичко обяснение в 1-2 изречение ;) Колко му е?
+HomepageDescr: Make your life easier by downloading and using the application now. And remember, if you need any additional functionality - search for such a plugin in the PluginMarket. Have fun!
 Download: Download ModernSteward
 Source: Source code
 Content: Content

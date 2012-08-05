@@ -33,6 +33,7 @@ library
                      Handler.Blog
                      Handler.Home
                      Handler.Plugin
+                     Handler.WebInterface
                      Helpers.Messages
                      Helpers.Posts
                      Helpers.Plugin
@@ -71,7 +72,7 @@ library
                  , persistent                    >= 0.9        && < 0.10
                  , persistent-sqlite     >= 0.9        && < 0.10
                  , template-haskell
-                 , hamlet                        >= 1.0        && < 1.1
+                 , hamlet                        >= 1.1        && < 1.2
                  , shakespeare-css               >= 1.0        && < 1.1
                  , shakespeare-js                >= 1.0        && < 1.1
                  , shakespeare-text              >= 1.0        && < 1.1

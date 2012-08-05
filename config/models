@@ -32,4 +32,11 @@ Plugin
     contentType Text ""
     filePath Text
 
- -- By default this file is used in Model.hs (which is imported by Foundation.hs)
+-- Opinion
+
+Click
+    text Text
+    user UserId
+    time UTCTime default=now
+    UniqueClick user time text
+    deriving (Show)

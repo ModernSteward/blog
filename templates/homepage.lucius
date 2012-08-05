@@ -1,9 +1,22 @@
 h1 {
     text-align: center
 }
-h2##{aDomId} {
-    color: #990
-}
 .centered {
     text-align: center;
+}
+.bs-icon {
+    float: left;
+    margin: 7px 10px 0 0;
+    opacity: .8;
+}
+.advantages h2 {
+    font-size: 22px;
+    font-weight: 300;
+}
+.advantages p {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    display: block;
+    margin: 9px 9px 10px 0;
+    font-weight: 700;
 }

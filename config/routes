@@ -4,7 +4,7 @@
 /favicon.ico FaviconR GET
 /robots.txt RobotsR GET
 
-/ HomeR GET POST
+/ HomeR GET
 /admin AdminR GET
 
 /admin/list-users AdminListUsersR GET
@@ -26,3 +26,7 @@
 /plugin/download/#PluginId DownloadPluginR GET
 /plugin/info/#PluginId InfoPluginR GET
 /plugin/getlist ListPluginsR GET
+
+/web-interface/send/#Text SendR GET
+/web-interface/list ListR GET
+/web-interface/accumulate AccumulateR GET
