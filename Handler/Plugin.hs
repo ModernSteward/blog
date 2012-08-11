@@ -9,7 +9,8 @@ data PluginForm = PluginForm { pfTitle :: Text
                              , pfDescription :: Textarea
                              , pfFile :: FileInfo
                              }
-                             deriving (Show)
+instance Show PluginForm where
+    show pf = show (pfTitle pf) ++ " " ++ show (pfDescription pf)
 pluginForm :: Maybe PluginForm -> Form PluginForm
 pluginForm plugin = renderBootstrap $ PluginForm
     <$> areq textField (setLabel MsgPluginName) (fmap pfTitle plugin)
@@ -27,15 +28,20 @@ postAddPluginR :: Handler RepHtml
 postAddPluginR = do
     ((result, formWidget), formEnctype) <- runFormPost $ pluginForm Nothing
     case result of
-            FormSuccess res -> do
-                name <- liftIO $ saveFile $ pfFile res
-                _ <- runDB $ insert $
-                    Plugin (pfTitle res)
-                           (pfDescription res)
-                           (fileContentType $ pfFile res)
-                           (T.pack name)
-                setMessage $ successMessage $ T.pack ("Successfully added a new plugin." ++ name)
-                redirect HomeR
+            FormSuccess res ->
+              if (fileContentType $ pfFile res) == ("application/zip" :: T.Text)
+              then do
+                      name <- liftIO $ saveFile $ pfFile res
+                      _ <- runDB $ insert $
+                          Plugin (pfTitle res)
+                                 (pfDescription res)
+                                 (fileContentType $ pfFile res)
+                                 (T.pack name)
+                      setMessage $ successMessage $ T.pack ("Successfully added a new plugin." ++ name)
+                      redirect HomeR
+              else defaultLayout $ do
+                           $(widgetFile "plugins/new-plugin")
+
             _ -> defaultLayout $ do
                 $(widgetFile "plugins/new-plugin")
             

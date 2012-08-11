@@ -1,21 +1,20 @@
 {-# LANGUAGE RankNTypes #-}
 module Helpers.Plugin where
 
-import Prelude hiding (writeFile)
-import Data.ByteString.Lazy (writeFile)
---import Data.ByteString.Lazy.Char8 (pack)
-import Data.Digest.Pure.SHA
+import qualified Data.Digest.Pure.SHA as C
+import qualified Data.ByteString.Char8 as C8
+import qualified Data.ByteString.Lazy as L
 import qualified Data.Text as T
 import Data.Int (Int64)
 import Import
+import Yesod.Request ()
 
 saveFile :: FileInfo -> IO String
 saveFile file = do
---    time <- getCurrentTime
---    let sha = sha1 $ (fileContent file) ++ (pack $ show time)
-    let sha = sha1 $ fileContent file
-    let name = "static/upload/" ++ showDigest sha ++ ".zip"
-    writeFile name $ fileContent file
+    time <- getCurrentTime
+    let sha = C.sha1 $ L.fromChunks [C8.pack $ T.unpack $ (fileName file) `T.append` (T.pack $ show time)]
+        name = "upload/" ++ (show sha) ++ ".zip" 
+    fileMove file name
     return name
 
 pluginToJson :: forall (backend :: (* -> *) -> * -> *).

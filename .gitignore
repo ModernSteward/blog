@@ -2,3 +2,5 @@ dist/
 *.swp
 *.swo
 deploy/
+static/tmp/
+upload/
