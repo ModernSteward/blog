@@ -1,6 +1,8 @@
 dist/
 *.swp
 *.swo
+*.sqlite3
+*.keter
 deploy/
 static/tmp/
 upload/

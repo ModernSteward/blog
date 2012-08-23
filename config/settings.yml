@@ -1,19 +1,24 @@
 Default: &defaults
-  host: "*4" # any IPv4 host
-  port: 3000
+  host: www.modernsteward.com
   approot: "http://78.90.135.20:3000"
   copyright: Insert copyright statement here
+  port: 8000
   #analytics: UA-YOURCODE
 
 Development:
+  host: www.modernsteward.com
   <<: *defaults
 
 Testing:
+  host: www.modernsteward.com
   <<: *defaults
 
 Staging:
+  host: www.modernsteward.com
   <<: *defaults
 
 Production:
   #approot: "http://www.example.com"
+  host: "*4"
+  port: 8000
   <<: *defaults

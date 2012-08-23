@@ -13,11 +13,6 @@ Email
     verkey Text Maybe
     UniqueEmail email
 
-Tag
-    post EntryId
-    name Text
-    UniqueTag post name
-
 Entry
     slug Text
     title Text
@@ -37,6 +32,6 @@ Plugin
 Click
     text Text
     user UserId
-    time UTCTime default=now
+    time UTCTime
     UniqueClick user time text
     deriving (Show)

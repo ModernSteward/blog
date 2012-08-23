@@ -1,0 +1,31 @@
+Default: &defaults
+  host: www.modernsteward.com
+  user: postgres
+  password: tinybattery
+  port: 5432
+  database: blog
+  poolsize: 10
+
+Development:
+  host: www.modernsteward.com
+  <<: *defaults
+
+Testing:
+  host: www.modernsteward.com
+  database: blog_test
+  <<: *defaults
+
+Staging:
+  host: www.modernsteward.com
+  database: blog_staging
+  poolsize: 100
+  <<: *defaults
+
+Production:
+  host: www.modernsteward.com
+  user: postgres
+  database: blog_prod
+  password: tinybattery
+  port: 5432
+  poolsize: 100
+  <<: *defaults

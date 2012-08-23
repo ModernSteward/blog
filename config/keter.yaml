@@ -1,0 +1,4 @@
+exec: ../dist/build/blog/blog
+args:
+    - production
+host: www.modernsteward.com
