@@ -2,7 +2,7 @@ Default: &defaults
   host: www.modernsteward.com
   approot: "http://78.90.135.20:3000"
   copyright: Insert copyright statement here
-  port: 8000
+  port: 3000
   #analytics: UA-YOURCODE
 
 Development:
