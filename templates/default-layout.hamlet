@@ -1,4 +1,16 @@
 $newline always
 $maybe msg <- mmsg
     <div #message>#{msg}
+$maybe Entity _ user <- muser
+    $maybe _ <- userPassword user
+    $nothing
+        <div .alert .alert-error>
+            <a .close data-dismiss="alert">
+                <i class="icon-remove"></i>
+            <p>
+                <strong>Warning
+            <p>
+                When you're logging into the application, you have identify. ModernSteward cannot retrieve information about your password from Google/Mozilla Persona. Because of that, we're kindly asking you to set a password for the application. Later, you will log into the application with your email and this password.
+            <p>
+                <a href=@{AuthR setpassR}>Set a password here.
 ^{widget}

@@ -1,0 +1,10 @@
+p {
+    text-align: justify;
+}
+small {
+    float: right;
+    text-align: right;
+}
+blockquote {
+    margin: 20px;
+}

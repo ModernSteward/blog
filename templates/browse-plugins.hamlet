@@ -1,0 +1,22 @@
+<table .clear .table .table-striped>
+    <thead>
+        <th>&#35;
+        <th>Name
+        <th>Description
+        <th>Action
+    <tbody>
+        $forall (i, p, k, isInstalled) <- plugins
+            <tr>
+                <td>
+                    #{show i}
+                <td>
+                    #{pluginTitle p}
+                <td>
+                    #{pluginDescription p}
+                <td>
+                    $if isInstalled
+                        <a .btn .btn-warning href=@{UninstallPluginR k}>Uninstall
+                    $else
+                        <a .btn .btn-success href=@{InstallPluginR k}>Install
+                    $if isCurrentUserAdmin
+                        <a href=@{DeletePluginR k} .btn .btn-danger>Delete

@@ -27,24 +27,34 @@ $newline always
         <script>
           document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');
     <body data-spy="scroll" data-target=".subnav" data-offset="80">
+        <header>
+          ^{pageBody hc}
         <div class="container">
-            <header>
-              ^{pageBody hc}
             <div style="margin-top: 50px;" id="main" role="main">
               ^{pageBody pc}
             <hr>
-            <footer>
-              <div class="row">
-                <div class="span11">
-                  <p>
-                    <a target=new href="http://yesodweb.com/">yesod</a> powered
-                  <p>
-                    <a target=new href="http://twitter.github.com/bootstrap">Bootstrapped
-                  <p>
-                    Icons from <a target=new href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>
-                <div class="span1">
-                  <p .pull-right>
-                    <a href=#>Top <i class="icon-arrow-up"></i>
+        <footer>
+          <div .container>
+            <div class="row">
+              <div class="span11">
+                <p>
+                  Icons from <a target=new href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>
+              <div class="span1">
+                <p .pull-right>
+                  <a href=#>Top <i class="icon-arrow-up"></i>
+            <div .row>
+              <div .span3 .centered>
+                <a href="http://microsoft.com" target=_blank>
+                  <img src=@{StaticR img_microsoft_png} width="80%" height="80%" alt="Microsoft Logo">
+              <div .span3 .centered>
+                <a href="http://mtel.bg" target=_blank>
+                  <img src=@{StaticR img_mtel_logo_png} width="63%" height="63%" alt="MTel Logo">
+              <div .span3 .centered>
+                <a href="http://pcstore.bg" target=_blank>
+                  <img src=@{StaticR img_pcstore_png} width="52%" height="52%" alt="PCStore Logo">
+              <div .span3 .centered>
+                <a href="http://robotev.com" target=_blank>
+                  <img src=@{StaticR img_robotev_logo_png} width="52%" height="52%" alt="Robotev Logo">
         \<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.  chromium.org/developers/how-tos/chrome-frame-getting-started -->
         \<!--[if lt IE 7 ]>
             <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js">

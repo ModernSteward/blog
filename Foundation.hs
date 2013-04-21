@@ -79,13 +79,17 @@ mkYesodData "App" $(parseRoutesFile "config/routes")
 
 type Form x = Html -> MForm App App (FormResult x, Widget)
 
-reqAdmin :: forall m s.
-            (PersistStore (YesodPersistBackend m) (GHandler s m),
-             YesodPersist m, YesodAuth m,
-             AuthId m
-             ~ Key
-                 (YesodPersistBackend m) (UserGeneric (YesodPersistBackend m))) =>
-            GHandler s m AuthResult
+reqAdmin :: forall sub master.
+                  (PersistStore (YesodPersistBackend master (GHandler sub master)),
+                   YesodPersist master, YesodAuth master,
+                   AuthId master
+                   ~ KeyBackend
+                       (PersistMonadBackend
+                          (YesodPersistBackend master (GHandler sub master)))
+                       (UserGeneric
+                          (PersistMonadBackend
+                             (YesodPersistBackend master (GHandler sub master))))) =>
+                  GHandler sub master AuthResult
 reqAdmin = do
     mu <- maybeAuth
     return $ case mu of
@@ -142,6 +146,7 @@ instance Yesod App where
         let menus :: [ (Route App, AppMessage) ]
             menus = [ (HomeR, MsgHome)
                     , (BlogR, MsgBlog)
+                    , (OpinionR, MsgOpinions)
                     ]
 
         let adminContentMenu :: [ (Route App,    AppMessage) ]
@@ -161,8 +166,9 @@ instance Yesod App where
             addStylesheet $ StaticR css_bootstrap_min_css
             addScript $ StaticR js_jquery_js
             addScript $ StaticR js_bootstrap_min_js
-            addScript $ StaticR js_bootstrap_scrollspy_js
-            addScript $ StaticR js_bootstrap_collapse_js
+--            addScript $ StaticR js_bootstrap_scrollspy_js
+--            addScript $ StaticR js_bootstrap_collapse_js
+--            addScript $ StaticR js_bootstrap_tab_js
             case isInAdmin of
                 True -> $(widgetFile "admin/wrapper")
                 False -> $(widgetFile "default-layout")
@@ -195,8 +201,8 @@ instance Yesod App where
     -- Place Javascript at bottom of the body tag so the rest of the page loads first
     jsLoader _ = BottomOfBody
 
-    maximumContentLength _ (Just AddPluginR) = 1024 * 1024 * 32 -- 32mb
-    maximumContentLength _ _ = 1024 * 1024 * 2 -- 2 mb
+--    maximumContentLength _ (Just AddPluginR) = 1024 * 1024 * 32 -- 32mb
+    maximumContentLength _ _ = 1024 * 1024 * 32 -- 2 mb
 
 instance YesodBreadcrumbs App where
     breadcrumb (EntryR slug) = do

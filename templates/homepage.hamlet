@@ -4,7 +4,7 @@ $newline always
   <p .centered>_{MsgHomepageDescr}
   <div .row>
     <div .span5 .centered>
-      <a .btn .btn-primary .btn-large href="http://google.bg/">
+      <a .btn .btn-primary .btn-large href=@{StaticR download_ModernSteward_Setup_msi}>
         <img src="@{StaticR img_glyphicons_200_download_png}">
         _{MsgDownload}
     <div .span5 .centered>

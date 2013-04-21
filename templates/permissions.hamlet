@@ -1,0 +1,18 @@
+<form .perm method=post enctype=#{formEnctype} action=@{PermissionsR}>
+    ^{formWidget}
+    <input .btn .btn-success type=submit>
+    <input .btn type=reset>
+<table .clear .table .table-striped>
+    <thead>
+        <th>&#35;
+        <th>Master
+        <th>Slave
+        <th>Action
+    <tbody>
+        $forall (m, s, i, k) <- permissions
+            <tr>
+                <td>#{i}
+                <td>#{pluginTitle $ entityVal m}
+                <td>#{pluginTitle $ entityVal s}
+                <td>
+                    <a .btn .btn-danger .btn-mini href=@{RemovePermissionR k}>Remove

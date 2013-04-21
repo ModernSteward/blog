@@ -26,6 +26,12 @@ Plugin
     description Textarea
     contentType Text ""
     filePath Text
+    deriving (Show)
+
+Command
+    pluginId PluginId
+    text Text
+    UniqueCommand pluginId text
 
 -- Opinion
 
@@ -33,5 +39,23 @@ Click
     text Text
     user UserId
     time UTCTime
-    UniqueClick user time text
+    pluginId PluginId
+    UniqueClick user time text pluginId
     deriving (Show)
+
+Permission
+    user UserId
+    master PluginId
+    slave PluginId
+    UniquePermission user master slave
+    deriving (Show)
+
+Installation
+    user UserId
+    plugin PluginId
+    UniqueInstallation user plugin
+
+Crash
+    errorMsg Text
+    stackTrace Text
+    date UTCTime

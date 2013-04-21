@@ -1,0 +1,6 @@
+.controls {
+    diplay: inline;
+}
+.clearfix {
+    display: inline;
+}

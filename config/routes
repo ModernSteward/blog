@@ -16,17 +16,31 @@
 /admin/delete-entry/#Text DeleteEntryR GET
 
 /admin/new-plugin AddPluginR GET POST
+/admin/del-plugin/#PluginId DeletePluginR GET
 
 /blog BlogR GET
 /blog/page/#Int BlogPageR GET
 /blog/#Text EntryR GET
 
+/crashreport CrashR POST
+
 /lang LangR POST
 
 /plugin/download/#PluginId DownloadPluginR GET
 /plugin/info/#PluginId InfoPluginR GET
-/plugin/getlist ListPluginsR GET
+/plugin/get-list ListPluginsR GET
+/plugin/get-installed ListInstalledR GET
+/plugin/has-permission/#PluginId/#PluginId HasPermissionR GET
 
-/web-interface/send/#Text SendR GET
-/web-interface/list ListR GET
+/plugin/install/#PluginId InstallPluginR GET
+/plugin/uninstall/#PluginId UninstallPluginR GET
+/plugin/browse BrowsePluginsR GET
+/plugin/permissions PermissionsR GET POST
+/plugin/remove-permission/#PermissionId RemovePermissionR GET
+
 /web-interface/accumulate AccumulateR GET
+/web-interface/list ListR GET
+/web-interface/send/#PluginId/#Text SendR GET
+
+/web-interface/commands CommandsR GET
+/opinions OpinionR GET

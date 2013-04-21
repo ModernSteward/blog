@@ -1,5 +1,7 @@
 Hello: Hello
 Home: Home
+BrowsePlugins: Plugins
+Permissions: Permissions
 Login: Login
 Logout: Logout
 Blog: Blog
@@ -32,3 +34,5 @@ AdminHome: The content shown to users can be controlled here.
 PostsCount: Posts
 UsersCount: Users
 PluginsCount: Plugins
+Commands: Commands
+Opinions: Opinions

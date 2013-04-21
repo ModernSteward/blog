@@ -11,8 +11,18 @@ $newline always
             $if isCurrentUserAdmin
               <li :isCurrent AdminR:.active>
                 <a href=@{AdminR}>_{MsgAdminPanel}
-            <li :isCurrent $ AuthR LoginR:.active>
-              $maybe _ <- muser
-                <a href=@{AuthR LogoutR}>_{MsgLogout}
-              $nothing
+            $maybe _ <- muser
+              <li :isCurrent $ BrowsePluginsR:.active>
+                <a href=@{BrowsePluginsR}>_{MsgBrowsePlugins}
+
+              <li :isCurrent $ CommandsR:.active>
+                <a href=@{CommandsR}>_{MsgCommands}
+
+              <li :isCurrent $ PermissionsR:.active>
+                <a href=@{PermissionsR}>_{MsgPermissions}
+
+              <li :isCurrent $ AuthR LoginR:.active>
+                  <a href=@{AuthR LogoutR}>_{MsgLogout}
+            $nothing
+              <li :isCurrent $ AuthR LoginR:.active>
                 <a href=@{AuthR LoginR}>_{MsgLogin}

@@ -3,7 +3,7 @@ module Handler.AdminUsers where
 import Import
 import Helpers.Messages
 
-listUsers :: (PersistEntity User, PersistQuery b m, PersistEntityBackend Entry ~ b) => b m [Entity User]
+--listUsers :: (PersistEntity User, PersistQuery b m, PersistEntityBackend Entry ~ b) => b m [Entity User]
 listUsers = selectList [] [Desc UserIdent]
 
 getAdminListUsersR :: Handler RepHtml

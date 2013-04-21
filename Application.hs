@@ -15,6 +15,9 @@ import Network.Wai.Middleware.RequestLogger (logStdout, logStdoutDev)
 import qualified Database.Persist.Store
 import Database.Persist.GenericSql (runMigration)
 import Network.HTTP.Conduit (newManager, def)
+import Control.Monad.Logger (runLoggingT)
+import System.IO (stdout)
+import System.Log.FastLogger (mkLogger)
 
 -- Import all relevant handler modules here.
 -- Don't forget to add new modules to your cabal file!
@@ -24,6 +27,8 @@ import Handler.Blog
 import Handler.Home
 import Handler.Plugin
 import Handler.WebInterface
+import Handler.Crash
+import Handler.Opinion
 
 -- This line actually creates our YesodSite instance. It is the second half
 -- of the call to mkYesodData which occurs in Foundation.hs. Please see
@@ -42,17 +47,36 @@ makeApplication conf = do
   where
     logWare   = if development then logStdoutDev
                                else logStdout
-
+-- | Loads up any necessary settings, creates your foundation datatype, and
+-- performs some initialization.
 makeFoundation :: AppConfig DefaultEnv Extra -> IO App
 makeFoundation conf = do
     manager <- newManager def
     s <- staticSite
-    dbconf <- withYamlEnvironment "config/postgresql.yml" (appEnv conf)
+    dbconf <- withYamlEnvironment "config/sqlite.yml" (appEnv conf)
               Database.Persist.Store.loadConfig >>=
               Database.Persist.Store.applyEnv
     p <- Database.Persist.Store.createPoolConfig (dbconf :: Settings.PersistConfig)
-    Database.Persist.Store.runPool dbconf (runMigration migrateAll) p
-    return $ App conf s p manager dbconf
+    logger <- mkLogger True stdout
+    let foundation = App conf s p manager dbconf --logger
+
+    -- Perform database migration using our application's logging settings.
+    runLoggingT
+        (Database.Persist.Store.runPool dbconf (runMigration migrateAll) p)
+        (messageLoggerSource foundation logger)
+
+    return foundation
+
+--makeFoundation :: AppConfig DefaultEnv Extra -> IO App
+--makeFoundation conf = do
+--    manager <- newManager def
+--    s <- staticSite
+--    dbconf <- withYamlEnvironment "config/postgresql.yml" (appEnv conf)
+--              Database.Persist.Store.loadConfig >>=
+--              Database.Persist.Store.applyEnv
+--    p <- Database.Persist.Store.createPoolConfig (dbconf :: Settings.PersistConfig)
+--    Database.Persist.Store.runPool dbconf (runMigration migrateAll) p
+--    return $ App conf s p manager dbconf
 
 -- for yesod devel
 getApplicationDev :: IO (Int, Application)

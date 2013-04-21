@@ -21,7 +21,7 @@ getEntryR slug = do
         setTitleI $ entryTitle entry
         $(widgetFile "blog-entry")
 
-resultsForPage :: (PersistEntity Entry, PersistQuery b m, PersistEntityBackend Entry ~ b) => Int -> b m [Entity Entry]
+--resultsForPage :: (PersistEntity Entry, PersistQuery b m, PersistEntityBackend Entry ~ b) => Int -> b m [Entity Entry]
 resultsForPage pageNumber = do
     let resultsPerPage = 30
     selectList [] [ Desc EntryPosted

@@ -1,0 +1,14 @@
+$if length commands == 0
+    #{warningMessage "No plugins installed."}
+<div .tabbable .tabs-left>
+    <ul .nav .nav-tabs>
+        $forall (i, _, p, _) <- commands
+            <li :i == 1:.active>
+                <a data-toggle="tab" href="#tab#{i}">#{pluginTitle p}
+
+    <div .tab-content>
+        $forall (i, pid, _, texts) <- commands
+            <div :i == 1:.active .tab-pane id="tab#{i}">
+                $forall t <- texts
+                    <a .btn .btn-primary .btn-large href=@{SendR pid t}>#{t}
+                    <br>

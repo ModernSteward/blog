@@ -1,4 +1,6 @@
 exec: ../dist/build/blog/blog
 args:
     - production
-host: www.modernsteward.com
+host: modernsteward.com
+ssl: false
+copy-to: root@modernsteward.com:/opt/keter/incoming

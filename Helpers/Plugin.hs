@@ -13,12 +13,12 @@ saveFile :: FileInfo -> IO String
 saveFile file = do
     time <- getCurrentTime
     let sha = C.sha1 $ L.fromChunks [C8.pack $ T.unpack $ (fileName file) `T.append` (T.pack $ show time)]
-        name = "upload/" ++ (show sha) ++ ".zip" 
+        name = "/home/ico/upload/" ++ (show sha) ++ ".zip" 
     fileMove file name
     return name
 
-pluginToJson :: forall (backend :: (* -> *) -> * -> *).
-                Entity (PluginGeneric backend) -> Value
+-- pluginToJson :: forall (backend :: (* -> *) -> * -> *).
+--                 Entity (PluginGeneric backend) -> Value
 pluginToJson (Entity pid plugin) =
     let id' = case (fromPersistValue $ unKey pid) :: Either Text Int64 of
                    Left a -> error $ show a
